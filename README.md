@@ -1,2 +1,1 @@
-# project-lvl1-s316
-# project-lvl1-s316
+<a href="https://codeclimate.com/github/simplyGo/project-lvl1-s316/maintainability"><img src="https://api.codeclimate.com/v1/badges/1920a1e622d80859523a/maintainability" /></a>
