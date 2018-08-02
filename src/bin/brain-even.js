@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { askName, askBooleanQuestion as askQstn } from '..';
 
 function isUsrRight(rightAns, usrAns) {
