@@ -5,6 +5,12 @@ function askName() {
   const actualName = readlineSync.question('Your name: ');
 
   console.log(`Hello, ${actualName}`);
+  return actualName;
 }
 
-export default askName;
+function askBooleanQuestion(question) {
+  console.log(`Question: ${question}`);
+  return readlineSync.question('Your answer: ');
+}
+
+export { askName, askBooleanQuestion };
