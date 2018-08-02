@@ -1,50 +1,39 @@
 import readlineSync from 'readline-sync';
+import { welcome, askName } from './commonFuncs';
+import { runEvenGame, runCalcGame } from './games';
 
-const welcome = () => {
-  console.log('Welcome to the Brain Games!');
-};
+const brainGamesList = ['0 - EvenGame', '1 - CalcGame'];
 
-const askName = () => {
-  console.log('May I have your name?');
-  const actualName = readlineSync.question('Your name: ');
-  console.log(`Hello, ${actualName}`);
-  return actualName;
+const chooseGame = (userName) => {
+  let plural = 's';
+  if (brainGamesList.length <= 1) plural = '';
+  console.log(`Choose your game${plural} from this list`);
+  console.log(brainGamesList);
+  const userChoice = readlineSync.question('Type number of your game: ');
+  switch (userChoice) {
+    case '0':
+      runEvenGame(userName);
+      break;
+    case '1':
+      runCalcGame(userName);
+      break;
+    default:
+      console.log(`You chose wrong game, try again ${userName}`);
+      break;
+  }
 };
 
 const runBrainGames = () => {
   welcome();
-  askName();
-};
-
-const getRandom = (minNum, maxNum) => {
-  const min = minNum || 0;
-  const max = maxNum || 100;
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
-const runEvenGame = (times) => {
-  welcome();
-  console.log('Answer "yes" if number even otherwise answer "no".');
   const userName = askName();
-  for (let i = 0; i < times; i += 1) {
-    const numQuestion = getRandom();
-    console.log(`Question: ${numQuestion}`);
-    const rightAnswer = numQuestion % 2 === 0 ? 'yes' : 'no';
-    const userAnswer = readlineSync.question('Your answer: ');
-    if (rightAnswer === userAnswer) {
-      console.log('Correct!');
-    } else {
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${rightAnswer}"`);
-      console.log(`Let's try again, ${userName}!`);
-      return;
-    }
+  chooseGame(userName);
+  const infiniteCycle = true;
+  while (infiniteCycle) {
+    console.log('Wanna play again?');
+    const playAgain = readlineSync.question('(yes/no): ');
+    if (playAgain !== 'yes') break;
+    chooseGame(userName);
   }
-  console.log(`Congratulations, ${userName}!`);
 };
 
-// const runCalcGame = () => {
-//   welcome();
-//   console.log('What is the result of the expression?');
-// };
-
-export { runBrainGames, runEvenGame, runCalcGame };
+export default runBrainGames;
