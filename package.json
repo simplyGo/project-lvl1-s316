@@ -2,7 +2,7 @@
   "name": "project-braingames-simply",
   "version": "1.0.0",
   "description": "brain-games project",
-  "keywords": ["braingames", "hexletproject", "logical", "nothingtodo"],
+  "keywords": ["consolegame", "braingames", "nobodyReadsKeywords"],
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
   },
@@ -20,12 +20,15 @@
     "type": "git",
     "url": "git+https://github.com/simplyGo/project-lvl1-s316.git"
   },
-  "author": "simply_smile",
+  "author": "Mark Cardinal",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/simplyGo/project-lvl1-s316/issues"
   },
   "homepage": "https://github.com/simplyGo/project-lvl1-s316#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.9"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
@@ -34,7 +37,6 @@
     "babel-preset-stage-0": "^6.24.1",
     "eslint": "^5.2.0",
     "eslint-config-airbnb-base": "^13.0.0",
-    "eslint-plugin-import": "^2.13.0",
-    "readline-sync": "^1.4.9"
+    "eslint-plugin-import": "^2.13.0"
   }
 }
