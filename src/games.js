@@ -88,8 +88,8 @@ const runGcdGame = (user, times) => {
   const userName = user || askName();
   for (let i = 0; i < runTimes; i += 1) {
     const multiply = getRandom(1, 10);
-    const a = getRandom(0, 10) * multiply;
-    const b = getRandom(0, 10) * multiply;
+    const a = getRandom(1, 10) * multiply;
+    const b = getRandom(1, 10) * multiply;
     const rightAnswer = getGCD(a, b);
     console.log(`Question: ${a} ${b}`);
     const userAnswer = readlineSync.question('Your answer: ');
