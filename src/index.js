@@ -1,8 +1,8 @@
 import readlineSync from 'readline-sync';
 import { welcome, askName } from './commonFuncs';
-import { runEvenGame, runCalcGame } from './games';
+import { runEvenGame, runCalcGame, runGcdGame } from './games';
 
-const brainGamesList = ['0 - EvenGame', '1 - CalcGame'];
+const brainGamesList = ['0 - EvenGame', '1 - CalcGame', '2 - gcdGame'];
 
 const chooseGame = (userName) => {
   let plural = 's';
@@ -16,6 +16,9 @@ const chooseGame = (userName) => {
       break;
     case '1':
       runCalcGame(userName);
+      break;
+    case '2':
+      runGcdGame(userName);
       break;
     default:
       console.log(`You chose wrong game, try again ${userName}`);

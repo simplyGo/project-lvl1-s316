@@ -17,6 +17,15 @@ const isCorrect = (user, userAnswer, rightAnswer) => {
   return userAnswer === rightAnswer;
 };
 
+const getGCD = (a, b) => {
+  const maxNum = a > b ? a : b;
+  let gcd = 1;
+  for (let i = 1; i < maxNum / 2; i += 1) {
+    if (a % i === 0 && b % i === 0) gcd = i;
+  }
+  return gcd;
+};
+
 const runEvenGame = (user, times) => {
   if (!user) welcome();
   console.log('Answer "yes" if number even otherwise answer "no".');
@@ -72,4 +81,21 @@ const runCalcGame = (user, times) => {
   console.log(`Congratulations, ${userName}!`);
 };
 
-export { runEvenGame, runCalcGame };
+const runGcdGame = (user, times) => {
+  if (!user) welcome();
+  console.log('Find the greatest common divisor of given numbers.');
+  const runTimes = times || 3;
+  const userName = user || askName();
+  for (let i = 0; i < runTimes; i += 1) {
+    const multiply = getRandom(1, 10);
+    const a = getRandom(0, 10) * multiply;
+    const b = getRandom(0, 10) * multiply;
+    const rightAnswer = getGCD(a, b);
+    console.log(`a = ${a} b = ${b} gcd = ${rightAnswer}`);
+    const userAnswer = readlineSync.question('Your answer: ');
+    if (!isCorrect(userName, Number(userAnswer), rightAnswer)) return;
+  }
+  console.log(`Congratulations, ${userName}!`);
+};
+
+export { runEvenGame, runCalcGame, runGcdGame };
