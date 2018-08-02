@@ -91,6 +91,7 @@ const runGcdGame = (user, times) => {
     const a = getRandom(0, 10) * multiply;
     const b = getRandom(0, 10) * multiply;
     const rightAnswer = getGCD(a, b);
+    console.log(`Question: ${a} ${b}`);
     const userAnswer = readlineSync.question('Your answer: ');
     if (!isCorrect(userName, Number(userAnswer), rightAnswer)) return;
   }
