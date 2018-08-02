@@ -1,8 +1,8 @@
 {
   "name": "project-braingames-simply",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "brain-games project",
+  "keywords": ["braingames", "hexletproject", "logical", "nothingtodo"],
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
   },
@@ -12,6 +12,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel-node": "babel-node",
+    "eslint": "eslint",
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build"
   },
@@ -19,7 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/simplyGo/project-lvl1-s316.git"
   },
-  "author": "",
+  "author": "simply_smile",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/simplyGo/project-lvl1-s316/issues"
@@ -28,8 +29,12 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^5.2.0",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
     "readline-sync": "^1.4.9"
   }
 }
