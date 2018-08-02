@@ -5,6 +5,6 @@ function askName() {
   const actualName = readlineSync.question('Your name: ');
 
   console.log(`Hello, ${actualName}`);
-};
+}
 
 export default askName;
