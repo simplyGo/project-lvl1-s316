@@ -20,7 +20,7 @@ const isCorrect = (user, userAnswer, rightAnswer) => {
 const getGCD = (a, b) => {
   const maxNum = a > b ? a : b;
   let gcd = 1;
-  for (let i = 1; i < maxNum / 2; i += 1) {
+  for (let i = 1; i <= maxNum; i += 1) {
     if (a % i === 0 && b % i === 0) gcd = i;
   }
   return gcd;
