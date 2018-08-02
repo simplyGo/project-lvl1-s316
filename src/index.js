@@ -41,6 +41,7 @@ function runEvenGame(usrName) {
     } else {
       console.log(`${usrAns} is wrong answer ;(. Correct answer was ${rightAns}`);
       console.log(`Let's try again, ${usrName}!`);
+      return;
     }
   }
   console.log(`Congratulations, ${usrName}!`);
