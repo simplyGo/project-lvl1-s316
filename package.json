@@ -1,8 +1,12 @@
 {
   "name": "project-braingames-simply",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "brain-games project",
-  "keywords": ["consolegame", "braingames", "nobodyReadsKeywords"],
+  "keywords": [
+    "consolegame",
+    "braingames",
+    "nobodyReadsKeywords"
+  ],
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
   },
