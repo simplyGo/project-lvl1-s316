@@ -1,4 +1,4 @@
-import { runGame, makeGameInput } from '..';
+import { runGame, makeGameData } from '..';
 
 const gameDescription = 'Answer "yes" if number even otherwise answer "no".';
 
@@ -14,7 +14,7 @@ const gameAnswer = (randomNum) => {
   return rightAnswer;
 };
 
-const getGameData = () => makeGameInput(gameQuestion, gameAnswer);
+const getGameData = () => makeGameData(gameQuestion, gameAnswer);
 
 const evenGame = () => runGame(getGameData, gameDescription);
 

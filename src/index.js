@@ -20,7 +20,7 @@ const getRandom = (minNum = 0, maxNum = 100) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-const makeGameInput = (createQuestion, gameLogic) => {
+const makeGameData = (createQuestion, gameLogic) => {
   const question = createQuestion(getRandom);
   const answer = gameLogic(question);
   return cons(question, answer);
@@ -100,4 +100,4 @@ const runBrainGames = () => {
   // }
 };
 
-export { runBrainGames, runGame, makeGameInput };
+export { runBrainGames, runGame, makeGameData };

@@ -1,4 +1,4 @@
-import { runGame, makeGameInput } from '..';
+import { runGame, makeGameData } from '..';
 
 const gameDescription = 'Find the greatest common divisor of given numbers.';
 
@@ -27,7 +27,7 @@ const gameAnswer = (question) => {
   return getGCD(a, b);
 };
 
-const getGameData = () => makeGameInput(gameQuestion, gameAnswer);
+const getGameData = () => makeGameData(gameQuestion, gameAnswer);
 
 const gcdGame = () => runGame(getGameData, gameDescription);
 

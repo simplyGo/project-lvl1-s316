@@ -1,4 +1,4 @@
-import { runGame, makeGameInput } from '..';
+import { runGame, makeGameData } from '..';
 
 const gameDescription = 'What is the result of the expression?';
 
@@ -58,7 +58,7 @@ const gameQuestion = (getRandom) => {
 
 const gameAnswer = questionData => getExpressionResult(questionData);
 
-const getGameData = () => makeGameInput(gameQuestion, gameAnswer);
+const getGameData = () => makeGameData(gameQuestion, gameAnswer);
 
 const calcGame = () => runGame(getGameData, gameDescription);
 
