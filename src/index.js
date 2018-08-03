@@ -8,7 +8,7 @@ const welcome = () => {
 const askName = () => {
   console.log('May I have your name?');
   const actualName = readlineSync.question('Your name: ');
-  console.log(`Hello, ${actualName}`);
+  console.log(`Hello, ${actualName}!`);
   return actualName;
 };
 
@@ -45,10 +45,10 @@ const runGame = (greeting, gameFunc) => {
   for (let i = 0; i < runTimes; i += 1) {
     const answer = gameFunc(makeAnswer, getRandom);
     // ----- test function -----
-    console.log('----');
-    console.log(getRightAnswer(answer));
-    console.log(getUserAnswer(answer));
-    console.log('----');
+    // console.log('----');
+    // console.log(getRightAnswer(answer));
+    // console.log(getUserAnswer(answer));
+    // console.log('----');
     if (!isAnswerCorrect(userName, answer)) return;
   }
   console.log(`Congratulations, ${userName}!`);
