@@ -12,13 +12,6 @@ const askName = () => {
   return actualName;
 };
 
-const makeAnswer = (rightAnswer) => {
-  const userAnswer = readlineSync.question('Your answer: ');
-  return cons(rightAnswer, userAnswer);
-};
-const getRightAnswer = answer => car(answer);
-const getUserAnswer = answer => cdr(answer);
-
 const runTimes = 3;
 
 const getRandom = (minNum = 0, maxNum = 100) => {
@@ -26,6 +19,21 @@ const getRandom = (minNum = 0, maxNum = 100) => {
   const max = maxNum;
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+
+const makeGameInput = (createQuestion, gameLogic) => {
+  const question = createQuestion(getRandom);
+  const answer = gameLogic(question);
+  return cons(question, answer);
+};
+const getQuestionData = data => car(data);
+const getAnswerData = data => cdr(data);
+
+const makeAnswer = (rightAnswer) => {
+  const userAnswer = readlineSync.question('Your answer: ');
+  return cons(String(rightAnswer), String(userAnswer));
+};
+const getRightAnswer = answer => car(answer);
+const getUserAnswer = answer => cdr(answer);
 
 const isAnswerCorrect = (userName, answer) => {
   const isCorrect = getUserAnswer(answer) === getRightAnswer(answer);
@@ -38,12 +46,15 @@ const isAnswerCorrect = (userName, answer) => {
   return isCorrect;
 };
 
-const runGame = (gameDescription = 'Game description', gameFunc) => {
+const runGame = (getGameData, gameDescription = 'Game description') => {
   welcome();
   console.log(gameDescription);
   const userName = askName();
   for (let i = 0; i < runTimes; i += 1) {
-    const answer = gameFunc(makeAnswer, getRandom);
+    const thisGameData = getGameData();
+    const question = getQuestionData(thisGameData);
+    console.log(`Question: ${question}`);
+    const answer = makeAnswer(getAnswerData(thisGameData));
     if (!isAnswerCorrect(userName, answer)) return;
   }
   console.log(`Congratulations, ${userName}!`);
@@ -89,4 +100,4 @@ const runBrainGames = () => {
   // }
 };
 
-export { runBrainGames, runGame };
+export { runBrainGames, runGame, makeGameInput };

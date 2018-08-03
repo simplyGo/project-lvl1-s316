@@ -1,10 +1,21 @@
+import { runGame, makeGameInput } from '..';
+
 const gameDescription = 'Answer "yes" if number even otherwise answer "no".';
 
-const evenGame = (makeAnswer, getRandom) => {
+const isEven = num => num % 2 === 0;
+
+const gameQuestion = (getRandom) => {
   const randomNum = getRandom();
-  console.log(`Question: ${randomNum}`);
-  const rightAnswer = randomNum % 2 === 0 ? 'yes' : 'no';
-  return makeAnswer(rightAnswer);
+  return randomNum;
 };
 
-export { gameDescription, evenGame };
+const gameAnswer = (randomNum) => {
+  const rightAnswer = isEven(randomNum) ? 'yes' : 'no';
+  return rightAnswer;
+};
+
+const getGameData = () => makeGameInput(gameQuestion, gameAnswer);
+
+const evenGame = () => runGame(getGameData, gameDescription);
+
+export default evenGame;

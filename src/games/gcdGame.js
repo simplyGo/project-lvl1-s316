@@ -1,3 +1,5 @@
+import { runGame, makeGameInput } from '..';
+
 const gameDescription = 'Find the greatest common divisor of given numbers.';
 
 const getGCD = (a, b) => {
@@ -9,13 +11,24 @@ const getGCD = (a, b) => {
   return gcd;
 };
 
-const gcdGame = (makeAnswer, getRandom) => {
+const getQuestionValues = question => question.split(' ');
+
+const gameQuestion = (getRandom) => {
   const multiply = getRandom(1, 10);
   const a = getRandom(1, 10) * multiply;
   const b = getRandom(1, 10) * multiply;
-  const rightAnswer = getGCD(a, b);
-  console.log(`Question: ${a} ${b}`);
-  return makeAnswer(String(rightAnswer));
+  return `${a} ${b}`;
 };
 
-export { gameDescription, gcdGame };
+const gameAnswer = (question) => {
+  const questionData = getQuestionValues(question);
+  const a = Number(questionData[0]);
+  const b = Number(questionData[1]);
+  return getGCD(a, b);
+};
+
+const getGameData = () => makeGameInput(gameQuestion, gameAnswer);
+
+const gcdGame = () => runGame(getGameData, gameDescription);
+
+export default gcdGame;
