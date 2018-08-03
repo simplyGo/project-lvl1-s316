@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 import { runGame } from '..';
-import { greeting, gcdGame } from '../games/gcdGame';
+import { gameDescription, gcdGame } from '../games/gcdGame';
 
-runGame(greeting, gcdGame);
+runGame(gameDescription, gcdGame);

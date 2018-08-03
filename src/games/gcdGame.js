@@ -1,4 +1,4 @@
-const greeting = 'Find the greatest common divisor of given numbers.';
+const gameDescription = 'Find the greatest common divisor of given numbers.';
 
 const getGCD = (a, b) => {
   const maxNum = a > b ? a : b;
@@ -18,4 +18,4 @@ const gcdGame = (makeAnswer, getRandom) => {
   return makeAnswer(String(rightAnswer));
 };
 
-export { greeting, gcdGame };
+export { gameDescription, gcdGame };

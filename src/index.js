@@ -38,17 +38,12 @@ const isAnswerCorrect = (userName, answer) => {
   return isCorrect;
 };
 
-const runGame = (greeting, gameFunc) => {
+const runGame = (gameDescription = 'Game description', gameFunc) => {
   welcome();
-  console.log(greeting);
+  console.log(gameDescription);
   const userName = askName();
   for (let i = 0; i < runTimes; i += 1) {
     const answer = gameFunc(makeAnswer, getRandom);
-    // ----- test function -----
-    // console.log('----');
-    // console.log(getRightAnswer(answer));
-    // console.log(getUserAnswer(answer));
-    // console.log('----');
     if (!isAnswerCorrect(userName, answer)) return;
   }
   console.log(`Congratulations, ${userName}!`);

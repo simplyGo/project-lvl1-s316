@@ -1,4 +1,4 @@
-const greeting = 'Answer "yes" if number even otherwise answer "no".';
+const gameDescription = 'Answer "yes" if number even otherwise answer "no".';
 
 const evenGame = (makeAnswer, getRandom) => {
   const randomNum = getRandom();
@@ -7,4 +7,4 @@ const evenGame = (makeAnswer, getRandom) => {
   return makeAnswer(rightAnswer);
 };
 
-export { greeting, evenGame };
+export { gameDescription, evenGame };

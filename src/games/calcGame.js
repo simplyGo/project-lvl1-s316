@@ -1,4 +1,4 @@
-const greeting = 'What is the result of the expression?';
+const gameDescription = 'What is the result of the expression?';
 
 const calcGame = (makeAnswer, getRandom) => {
   const expressionType = ['add', 'substract', 'multiply'];
@@ -29,4 +29,4 @@ const calcGame = (makeAnswer, getRandom) => {
   return makeAnswer(String(rightAnswer));
 };
 
-export { greeting, calcGame };
+export { gameDescription, calcGame };
